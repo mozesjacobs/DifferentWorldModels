@@ -48,9 +48,10 @@ To train the VAEs, we took random rollouts of the environment and trained the VA
 
 ## Results
 
-How did you evaluate your approach? How well did you do? What are you comparing to? Maybe you want ablation studies or comparisons of different methods.
+<video width="320" height="240" controls>
+  <source src="videos/vae-b4.mp4" type="video/mp4">
+</video>
 
-You may want some qualitative results and quantitative results. Example images/text/whatever are good. Charts are also good. Maybe loss curves or AUC charts. Whatever makes sense for your evaluation.
 
 ## Discussion
 
