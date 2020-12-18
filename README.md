@@ -50,9 +50,9 @@ To train the VAEs, we took random rollouts of the environment and trained the VA
 
 We evaluated the approach by looking at the best evaluation for the model. The evaluation is determined by averaging the reward of 10 rollouts every 3 epochs, using the controller parameters from the best candidate solution of the CMA-ES. We also looked at the video to determine what issues may be present in the controller. The two most common issues we found were shaky driving and trouble with sharp turns.
 
-Figure 1 shows the learning curves for the four different models, and Figure 2 displays the best evaluation values from the four different models. In the learning curves, we see a gradual improvement as the number of epochs increases, but it is very jumpy. This may be partly due to the fact that we limited the number of candidate solutions for CMA-ES to 4 resulting in a smaller sample to work with and, thus, less representative mean values for the following epochs. We also found that a beta value of 2 results in the highest scores in this environment.
+Figure 1 shows the learning curves for the four different models. Figure 2 displays the best evaluation values from the four different models. And Figure 3 shows some a rollout for each beta value. In the learning curves, we see a gradual improvement as the number of epochs increases, but it is very jumpy. This may be partly due to the fact that we limited the number of candidate solutions for CMA-ES to 4 resulting in a smaller sample to work with and, thus, less representative mean values for the following epochs. We also found that a beta value of 2 results in the highest scores in this environment.
 
-These results are lower than the reputed 906 score in the original paper and the 870 score in a reimplementation with randomly initialized weights [1, 2]. In these implementations, training occurred on a fixed number of environments that did not change throughout training. Because we implemented the training scheme in a colab notebook with limited RAM, we had to vary the environment every 3 epochs so it's possible that our model is not able to learn as well due to this variation. It is also hard to tell whether or not the performance peaked and plateaued in the graphs, so it's also possible that our model was just learning slowly and needed more epochs to improve.
+These results are lower than the 906 score in the original paper and the 870 score in a reimplementation with randomly initialized weights [1, 2]. In these implementations, training occurred on a fixed number of environments that did not change throughout training. Because we implemented the training scheme in a colab notebook with limited RAM, we had to vary the environment every 3 epochs so it's possible that our model is not able to learn as well due to this variation. In theory, an agent should have an easier time learning an environment if it is set rather than always changing. It is also hard to tell whether or not the performance peaked and plateaued in the graphs, so it's also possible that our model was just learning slowly and needed more epochs to improve.
 
 #### Figure 1
 
@@ -73,6 +73,7 @@ Raw Data | Smoothed Data
 | :---        |  :----: |
 | <img src="videos/vae-b1.gif" width="400" height="300"/>| <img src="videos/vae-b2.gif" width="400" height="300"/>|
 
+#### Figure 3
 | Rollout 3 (beta=4)| Rollout 8 (beta=8)|
 |:--- |:---:|
 |<img src="videos/vae-b4.gif" width="400" height="300"/>|<img src="videos/vae-b8.gif" width="400" height="300"/>|
