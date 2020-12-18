@@ -69,12 +69,13 @@ Raw Data | Smoothed Data
 | 4                | 529             |
 | 8                | 126             |
 
-| Beta Values | Rollout |
+| Rollout 1 (beta=1)| Rollout 2 (beta=2) |
 | :---        |  :----: |
-| 1           | ![](videos/vae-b1.gif)|
-| 2           | ![](videos/vae-b2.gif)|
-| 4           | ![](videos/vae-b4.gif)|
-| 8           | ![](videos/vae-b8.gif)|
+| <img src="videos/vae-b1.gif" width="250" height="175"/>| <img src="videos/vae-b2.gif" width="250" height="175"/>|
+
+| Rollout 3 (beta=4)| Rollout 8 (beta=8)|
+|:--- |:---:|
+|<img src="videos/vae-b4.gif" width="250" height="175"/>|<img src="videos/vae-b8.gif" width="250" height="175"/>|
 
 ## Discussion
 
