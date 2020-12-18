@@ -69,6 +69,13 @@ Raw Data | Smoothed Data
 | 4                | 529             |
 | 8                | 126             |
 
+| Beta Values | Rollout |
+| :---        |  :----: |
+| 1           | ![](videos/vae-b1.gif)|
+| 2           | ![](videos/vae-b2.gif)|
+| 4           | ![](videos/vae-b4.gif)|
+| 8           | ![](videos/vae-b8.gif)|
+
 ## Discussion
 
 Despite the fact that we were not able to reproduce the results in the paper, we were able to implement an architecture that has all the same components, which learns useful information in the car racing environment. The key components that differentiates what we did are that we used an MDN-RNN with random weights, and we tried different visual representations for the VAE. We did not explore training with a dream since our MDN-RNN could not produce a reasonable prediction. The controller and training methods were the same as in the world models paper.
