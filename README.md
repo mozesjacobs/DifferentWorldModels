@@ -69,11 +69,12 @@ Raw Data | Smoothed Data
 | 4                | 529             |
 | 8                | 126             |
 
+
+#### Figure 3
 | Rollout 1 (beta=1)| Rollout 2 (beta=2) |
 | :---        |  :----: |
 | <img src="videos/vae-b1.gif" width="400" height="300"/>| <img src="videos/vae-b2.gif" width="400" height="300"/>|
 
-#### Figure 3
 | Rollout 3 (beta=4)| Rollout 8 (beta=8)|
 |:--- |:---:|
 |<img src="videos/vae-b4.gif" width="400" height="300"/>|<img src="videos/vae-b8.gif" width="400" height="300"/>|
@@ -92,7 +93,19 @@ One interesting thing about varying the beta values is that the reconstructions 
 
 Original Image vs VAE Reconstruction (beta = 1)
 :-------:|
-![Reconstructions](images/vae_original_vs_b1) |
+![Reconstructions](images/vae_original_vs_b1.png) |
+
+Original Image vs VAE Reconstruction (beta = 2)
+:-------:|
+![Reconstructions](images/vae_original_vs_b2.png) |
+
+Original Image vs VAE Reconstruction (beta = 4)
+:-------:|
+![Reconstructions](images/vae_original_vs_b4.png) |
+
+Original Image vs VAE Reconstruction (beta = 8)
+:-------:|
+![Reconstructions](images/vae_original_vs_b8.png) |
 
 
 Furthermore, when we look at the reconstruction loss over a batch of 250 images, we see that it doesn't drastically change, either.
@@ -112,7 +125,7 @@ In the future, we would like to look at ways to augment the information stored i
 
 Furthermore, we noticed that our agents especially struggled at very close turns or u-turns. We think it could be worthwhile training the agent from different starting points in the environment. We hypothesize that, if we were to train the agent from near a sharp turn specifically at the start as many times as we would like, it could get better at this specific task much faster than when said sharp turns are more sparsely encountered throughout a rollout.
 
-Our work here connects to the predictive coding theory of the brain, a research area Mozes is currently working in. One of the main ideas of this theory is that the brain contains an internal model of the world that it continually updates [4]. We see our work as a proof of initial concept for the idea that enriching the information stored in the internal model (in the form of the latent vector z) can lead to better, or at least on par performance. In the future, we hope to delve deeper into this and design a model for this environment based on active inference [5].
+Our work here connects to the predictive coding theory of the brain, a research area Mozes is currently working in. One of the main ideas of this theory is that the brain contains an internal model of the world that it continually updates [4]. We see our work as a proof of initial concept for the idea that enriching the information stored in the internal model (in the form of the latent vector z) can lead to better  performance. In the future, we hope to delve deeper into this and design a model for this environment based on active inference [5].
 
 ## References
 
