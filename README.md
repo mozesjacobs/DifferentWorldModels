@@ -28,6 +28,24 @@ We decided to solve the problem using 4 different models. We’ll first discuss 
 
 ![Original Model](images/model_image1.png)
 
+
+#### VAE
+The VAE takes in the current frame (a 64 x 64 x 3 image) as input and compresses it into a latent vector, which we shall call z. This z vector can be thought of as the model’s internal representation of the world.
+
+#### MDN-RNN
+The MDN-RNN takes in the current z, the currently chosen action, and the hidden state of the previous time step. It outputs the hidden state of the next time step. It can also be used to predict the z vector of the next frame (as the original authors put it, this is part of the model’s ability to create a dream state); we did not explore this feature. The MDN-RNN essentially keeps track of the model’s history. It could theoretically be keeping track of “higher order” info such as velocity and acceleration (which transcend individual time steps), as suggested by the one of the groups that reimplemented the model[2].
+
+![MDN-RNN](images/model_image2.png)
+
+#### Controller
+Takes in the current z vector and the current hidden state to choose an action for the agent. The controller consisted of a linear layer whose output was fed through a Tanh function.
+
+#### Beta-VAE
+We experimented with using various beta-VAEs, which is where our model architecture differs from the original. As stated in the “Related Work” section, the Beta-VAE uses a modified loss function during training. The KL divergence term in the loss function is multiplied by a beta value greater than 1, which encourages the z vector to become a disentangled representation of the input image. The original model can be thought of as using a beta value of 1 (meaning the KL divergence term was not modified). In addition to the original beta = 1 variational autoencoder, we trained 3 more controllers using beta values equal to 2, 4, and 8.
+
+### Training
+To train the VAEs, we took random rollouts of the environment and trained the VAE to reproduce each image in the rollout. To train the MDN-RNN, we used randomly initialized weights. To train the controller, we used the CMA-ES evolution strategy. This was the same evolution strategy used by the authors of the original paper.
+
 ## Results
 
 How did you evaluate your approach? How well did you do? What are you comparing to? Maybe you want ablation studies or comparisons of different methods.
