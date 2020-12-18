@@ -92,27 +92,20 @@ One interesting thing about varying the beta values is that the reconstructions 
 #### Figure 4
 
 Original Image vs VAE Reconstruction (beta = 1)
-
-![Reconstructions]<img style="max-height: 100px; width: auto; " src="images/vae_original_vs_b1.png" />
-
-
-![Reconstructions]<img src="images/vae_original_vs_b1.png" width="800" height="300">
-
 :-------:|
-![Reconstructions](images/vae_original_vs_b1.png) |
+<img src="images/vae_original_vs_b1.png" width="800" height="300">
 
 Original Image vs VAE Reconstruction (beta = 2)
 :-------:|
-![Reconstructions](images/vae_original_vs_b2.png) |
+<img src="images/vae_original_vs_b2.png" width="800" height="300">
 
 Original Image vs VAE Reconstruction (beta = 4)
 :-------:|
-![Reconstructions](images/vae_original_vs_b4.png) |
+<img src="images/vae_original_vs_b4.png" width="800" height="300">
 
 Original Image vs VAE Reconstruction (beta = 8)
 :-------:|
-![Reconstructions](images/vae_original_vs_b8.png) |
-
+<img src="images/vae_original_vs_b8.png" width="800" height="300">
 
 Furthermore, when we look at the reconstruction loss over a batch of 250 images, we see that it doesn't drastically change, either.
 
