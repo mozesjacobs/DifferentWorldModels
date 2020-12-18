@@ -92,6 +92,8 @@ One interesting thing about varying the beta values is that the reconstructions 
 #### Figure 4
 
 Original Image vs VAE Reconstruction (beta = 1)
+![Reconstructions]<img src="images/vae_original_vs_b1.png" width="800" height="300">
+
 :-------:|
 ![Reconstructions](images/vae_original_vs_b1.png) |
 
