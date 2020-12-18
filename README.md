@@ -10,7 +10,7 @@ VIDEO GOES HERE (probably): Record a 2-3 minute long video presenting your work.
 
 The goal of this project was to investigate the effectiveness of alternative implementations of the WorldModels model, as well as the replicability of their results. The original model is extremely exciting, as it’s based on the idea that humans have an internal model of the world around them and make decisions based on visual representations and memory of these representations. In this project, we explore the effects of changing the type of information stored in that internal model by changing the Beta value in the VAE (variational autoencoder).
 
-We also thought it was interesting that a group randomly initialized an MDN-RNN and found it to perform just as well in learning an external environment [2]. Of course, this means that the agent will not be able to create hallucinations that visually make sense. We explored these results by also using a randomly initialized MDN-RNN.
+We also thought it was interesting that a group randomly initialized an MDN-RNN and found it to perform just as well in learning an external environment [2]. Of course, this means that the agent will not be able to create hallucinations that visually make sense, and this is something we did not dive into. We explored these results by also using a randomly initialized MDN-RNN.
 
 
 ## Related Work
