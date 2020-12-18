@@ -87,7 +87,7 @@ We trained the controller on google colab and found there to be memory leaks tha
 
 We experimented with varying beta values for the VAE, and found that our implementation with beta = 2 performed the best. This is interesting, as it suggests that this disentangled latent z vector contains better information than the z vector in the original implementation. We also found it interesting that too high of a beta value (beta = 8) leads to a network that was not able to learn very much. We hypothesize that this VAE with beta = 8 learns too much of a disentangled representation of the image, meaning that the information it encodes is not relevant to the task of action selection.
 
-One interesting thing about varying the beta values is that the reconstructions don't change significantly. If we lookat the figure below, we can see that reconstructions of an input image for each of our 4 different Beta-VAE's look pretty similar. 
+One interesting thing about varying the beta values is that the reconstructions don't change significantly. If we look at the figure below, we can see that reconstructions of an input image for each of our 4 different Beta-VAE's look pretty similar. 
 
 #### Figure 4
 
