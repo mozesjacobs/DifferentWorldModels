@@ -46,9 +46,10 @@ We experimented with using various beta-VAEs, which is where our model architect
 #### Training
 To train the VAEs, we took random rollouts of the environment and trained the VAE to reproduce each image in the rollout. To train the MDN-RNN, we used randomly initialized weights. To train the controller, we used the CMA-ES evolution strategy. This was the same evolution strategy used by the authors of the original paper.
 
+
 ## Results
 
-![Reward Graph for VAEs](images/reward.png)
+![Reward](images/reward.png)
 
 ## Discussion
 
