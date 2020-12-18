@@ -86,6 +86,28 @@ We trained the controller on google colab and found there to be memory leaks tha
 
 We experimented with varying beta values for the VAE, and found that our implementation with beta = 2 performed the best. This is interesting, as it suggests that this disentangled latent z vector contains better information than the z vector in the original implementation. We also found it interesting that too high of a beta value (beta = 8) leads to a network that was not able to learn very much. We hypothesize that this VAE with beta = 8 learns too much of a disentangled representation of the image, meaning that the information it encodes is not relevant to the task of action selection.
 
+One interesting thing about varying the beta values is that the reconstructions don't change significantly. If we lookat the figure below, we can see that reconstructions of an input image for each of our 4 different Beta-VAE's look pretty similar. 
+
+#### Figure 4
+
+Original Image vs VAE Reconstruction (beta = 1)
+:-------:|
+![Reward](images/vae_original_vs_b1) |
+
+
+Furthermore, when we look at the reconstruction loss over a batch of 250 images, we see that it doesn't drastically change, either.
+
+#### Figure 5
+
+| Beta Values      | Reconstruction Loss |
+| :---             |    :----:           |
+| 1                | 7129533             |
+| 2                | 7145845             |
+| 4                | 7152680             |
+| 8                | 7165150             |
+
+
+
 In the future, we would like to look at ways to augment the information stored in the MDN-RNN’s hidden state. If we could achieve more complex, information-rich states, it’s conceivable that we could get better performance.
 
 Furthermore, we noticed that our agents especially struggled at very close turns or u-turns. We think it could be worthwhile training the agent from different starting points in the environment. We hypothesize that, if we were to train the agent from near a sharp turn specifically at the start as many times as we would like, it could get better at this specific task much faster than when said sharp turns are more sparsely encountered throughout a rollout.
