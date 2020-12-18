@@ -92,21 +92,21 @@ One interesting thing about varying the beta values is that the reconstructions 
 
 Original Image vs VAE Reconstruction (beta = 1)
 :-------:|
-![Reward](images/vae_original_vs_b1) |
+![Reconstructions](images/vae_original_vs_b1) |
 
 
 Furthermore, when we look at the reconstruction loss over a batch of 250 images, we see that it doesn't drastically change, either.
 
 #### Figure 5
 
-| Beta Values      | Reconstruction Loss |
-| :---             |    :----:           |
-| 1                | 7129533             |
-| 2                | 7145845             |
-| 4                | 7152680             |
-| 8                | 7165150             |
+| Beta Values      | Reconstruction Loss | Peak Reward |
+| :---             |    :----            |    :----:   |
+| 1                | 7129533             | 360         |
+| 2                | 7145845             | 570         |
+| 4                | 7152680             | 529         |
+| 8                | 7165150             | 126         |
 
-
+Even though reconstruction quality is quite similar, we see that the rewards are generally quite different, besides for the models with beta = 2 and beta = 4. This suggests that the information being stored in the z vectors differs quite significantly between VAEs with different beta values (besides potentially beta = 2 and beta = 4), and that this difference matters quite significantly in relation to an agent's performance. 
 
 In the future, we would like to look at ways to augment the information stored in the MDN-RNN’s hidden state. If we could achieve more complex, information-rich states, it’s conceivable that we could get better performance.
 
