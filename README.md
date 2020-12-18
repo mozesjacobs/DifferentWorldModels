@@ -69,11 +69,12 @@ Raw Data | Smoothed Data
 | 4                | 529             |
 | 8                | 126             |
 
+
+#### Figure 3
 | Rollout 1 (beta=1)| Rollout 2 (beta=2) |
 | :---        |  :----: |
 | <img src="videos/vae-b1.gif" width="400" height="300"/>| <img src="videos/vae-b2.gif" width="400" height="300"/>|
 
-#### Figure 3
 | Rollout 3 (beta=4)| Rollout 8 (beta=8)|
 |:--- |:---:|
 |<img src="videos/vae-b4.gif" width="400" height="300"/>|<img src="videos/vae-b8.gif" width="400" height="300"/>|
@@ -86,11 +87,48 @@ We trained the controller on google colab and found there to be memory leaks tha
 
 We experimented with varying beta values for the VAE, and found that our implementation with beta = 2 performed the best. This is interesting, as it suggests that this disentangled latent z vector contains better information than the z vector in the original implementation. We also found it interesting that too high of a beta value (beta = 8) leads to a network that was not able to learn very much. We hypothesize that this VAE with beta = 8 learns too much of a disentangled representation of the image, meaning that the information it encodes is not relevant to the task of action selection.
 
+One interesting thing about varying the beta values is that the reconstructions don't change significantly. If we look at the figure below, we can see that reconstructions of an input image for each of our 4 different Beta-VAE's look pretty similar. 
+
+#### Figure 4
+
+Original Image vs VAE Reconstruction (beta = 1)
+:-------:|
+![Reconstructions](images/vae_original_vs_b1.png = 250x250)
+
+:-------:|
+![Reconstructions](images/vae_original_vs_b1.png) |
+
+Original Image vs VAE Reconstruction (beta = 2)
+:-------:|
+![Reconstructions](images/vae_original_vs_b2.png) |
+
+Original Image vs VAE Reconstruction (beta = 4)
+:-------:|
+![Reconstructions](images/vae_original_vs_b4.png) |
+
+Original Image vs VAE Reconstruction (beta = 8)
+:-------:|
+![Reconstructions](images/vae_original_vs_b8.png) |
+
+
+Furthermore, when we look at the reconstruction loss over a batch of 250 images, we see that it doesn't drastically change, either.
+
+#### Figure 5
+
+| Beta Values      | Reconstruction Loss | Peak Reward |
+| :---             |    :----            |    :----:   |
+| 1                | 7129533             | 360         |
+| 2                | 7145845             | 570         |
+| 4                | 7152680             | 529         |
+| 8                | 7165150             | 126         |
+
+Even though reconstruction quality is quite similar, we see that the rewards are generally quite different, besides for the models with beta = 2 and beta = 4. This suggests that the information being stored in the z vectors differs quite significantly between VAEs with different beta values (besides potentially beta = 2 and beta = 4), and that this difference matters quite significantly in relation to an agent's performance. The beta = 2 and beta = 4 VAE's likely encode an image into a "higher quality" z vector than the beta = 1 or beta = 8 VAE, and this higher quality seems to have a high impact on the agent's performance.
+
 In the future, we would like to look at ways to augment the information stored in the MDN-RNN’s hidden state. If we could achieve more complex, information-rich states, it’s conceivable that we could get better performance.
 
 Furthermore, we noticed that our agents especially struggled at very close turns or u-turns. We think it could be worthwhile training the agent from different starting points in the environment. We hypothesize that, if we were to train the agent from near a sharp turn specifically at the start as many times as we would like, it could get better at this specific task much faster than when said sharp turns are more sparsely encountered throughout a rollout.
 
-Our work here connects to the predictive coding theory of the brain, a research area Mozes is currently working in. One of the main ideas of this theory is that the brain contains an internal model of the world that it continually updates [4]. We see our work as a proof of initial concept for the idea that enriching the information stored in the internal model (in the form of the latent vector z) can lead to better, or at least on par performance. In the future, we hope to delve deeper into this and design a model for this environment based on active inference [5].
+Our work here connects to the predictive coding theory of the brain, a research area Mozes is currently working in. One of the main ideas of this theory is that the brain contains an internal model of the world that it continually updates [4]. We see our work as a proof of initial concept for the idea that enriching the information stored in the internal model (in the form of the latent vector z) can lead to better  performance. In the future, we hope to delve deeper into this and design a model for this environment based on active inference [5].
 
 ## References
 
