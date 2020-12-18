@@ -48,9 +48,7 @@ To train the VAEs, we took random rollouts of the environment and trained the VA
 
 ## Results
 
-<video width="320" height="240" controls>
-  <source src="videos/vae-b4.mp4" type="video/mp4">
-</video>
+![](videos/vae-b4.mp4)
 
 
 ## Discussion
