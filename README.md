@@ -35,7 +35,7 @@ The VAE takes in the current frame (a 64 x 64 x 3 image) as input and compresses
 #### MDN-RNN
 The MDN-RNN takes in the current z, the currently chosen action, and the hidden state of the previous time step. It outputs the hidden state of the next time step. It can also be used to predict the z vector of the next frame (as the original authors put it, this is part of the model’s ability to create a dream state); we did not explore this feature. The MDN-RNN essentially keeps track of the model’s history. It could theoretically be keeping track of “higher order” info such as velocity and acceleration (which transcend individual time steps), as suggested by the one of the groups that reimplemented the model[2].
 
-![MDN-RNN](images/model_image2.png)
+[![MDN-RNN]](images/model_image2.png)
 
 #### Controller
 Takes in the current z vector and the current hidden state to choose an action for the agent. The controller consisted of a linear layer whose output was fed through a Tanh function.
@@ -47,7 +47,16 @@ We experimented with using various beta-VAEs, which is where our model architect
 To train the VAEs, we took random rollouts of the environment and trained the VAE to reproduce each image in the rollout. To train the MDN-RNN, we used randomly initialized weights. To train the controller, we used the CMA-ES evolution strategy. This was the same evolution strategy used by the authors of the original paper.
 
 ## Results
+Beta = 1
+The original VAE (so beta = 1) achieved a peak reward of beta = 360.
+Beta = 2
+Our Beta-VAE with beta = 2 had a peak reward of 570.
+Beta = 4
+Our Beta-VAE with beta = 4 had a peak reward of 529.
+Beta = 8
+Our Beta-VAE with beta = 8 had a peak reward of 126.
 
+Overall, our Beta-VAE with beta = 2 had the best performance, followed by the beta = 4 VAE, then the beta = 1 VAE, and lastly by the beta = 8 VAE. 
 
 ## Discussion
 
