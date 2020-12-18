@@ -49,10 +49,13 @@ To train the VAEs, we took random rollouts of the environment and trained the VA
 ## Results
 Beta = 1
 The original VAE (so beta = 1) achieved a peak reward of beta = 360.
+
 Beta = 2
 Our Beta-VAE with beta = 2 had a peak reward of 570.
+
 Beta = 4
 Our Beta-VAE with beta = 4 had a peak reward of 529.
+
 Beta = 8
 Our Beta-VAE with beta = 8 had a peak reward of 126.
 
