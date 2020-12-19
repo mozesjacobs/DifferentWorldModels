@@ -1,6 +1,8 @@
 """
 Define MDRNN model, supposed to be used as a world model
 on the latent space.
+
+Code taken from this repo: https://github.com/ctallec/world-models
 """
 import torch
 import torch.nn as nn

@@ -1,3 +1,7 @@
+"""
+Code taken from this repo: https://github.com/ctallec/world-models
+"""
+
 from gym import logger as gymlogger
 gymlogger.set_level(40) #error only
 

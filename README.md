@@ -133,3 +133,6 @@ Our work here connects to the predictive coding theory of the brain, a research 
 3. https://openreview.net/references/pdf?id=Sy2fzU9gl
 4. https://www.nature.com/articles/nn0199_79
 5. https://link.springer.com/article/10.1007/s00422-019-00805-w#:~:text=Active%20inference%20is%20an%20approach,be%20improved%20in%20two%20ways.
+
+
+Note: env_rollouts were retrieved using code from this repo: https://github.com/zacwellmer/WorldModels
