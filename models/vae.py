@@ -2,10 +2,11 @@ import torch
 import torch.nn as nn
 
 class VAE(nn.Module):
-    def __init__(self, device, batch_size=250):
+    def __init__(self, device, beta=1, batch_size=250):
         super(VAE, self).__init__()
 
         self.device = device
+        self.beta = beta
 
         self.encoder = nn.Sequential(
             nn.Conv2d(3, 32, 4, stride=2),
@@ -35,11 +36,9 @@ class VAE(nn.Module):
         )
 
         self.batch_size = batch_size
-        # self.dist = torch.distributions.laplace.Laplace(0, torch.ones([50]))
 
     def reparameterize(self, mu, logvar):
         std = torch.exp(0.5 * logvar)
-        # noise = torch.randn(self.batch_size, 32).to(self.device)
         noise = torch.randn_like(std).to(self.device)
         return mu + std * noise  # z
 
@@ -61,6 +60,6 @@ class VAE(nn.Module):
     def loss_func(self, x, x_prime, mu, logvar):
         recon_loss = nn.BCELoss(reduction='sum')
         loss = recon_loss(x_prime, x)
-        loss += -0.5 * torch.sum(1 + logvar - mu.pow(2) - torch.exp(logvar))
+        loss += (-0.5 * torch.sum(1 + logvar - mu.pow(2) - torch.exp(logvar))) * self.beta
 
         return loss
