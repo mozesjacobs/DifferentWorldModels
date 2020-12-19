@@ -18,7 +18,7 @@ We also thought it was interesting that a group randomly initialized an MDN-RNN 
 ## Related Work
 
 1. https://worldmodels.github.io/
-  - This is the original model. it uses a VAE, an MDN-RNN, and a linear controller to choose actions. it achieves a state of the art performance with 950 reward, solving the environment.
+  - This is the original model. it uses a VAE, an MDN-RNN, and a linear controller to choose actions. it achieves a state of the art performance with 906 reward, solving the environment.
 2. https://ctallec.github.io/world-models/
   - This group reimplemented the original model, as well as an alternative version with a randomly initialized MDN-RNN. Their reimplementation of the model achieved 860 reward. Their reimplementation with the randomly initialized weights in the MDN-RNN achieved a score of 870.
 3. https://openreview.net/references/pdf?id=Sy2fzU9gl
