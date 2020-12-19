@@ -1,3 +1,7 @@
+# Code used as a reference:
+# Main VAE framework: https://github.com/ctallec/world-models
+# Reparameterize and loss_func: https://github.com/pytorch/examples/tree/master/vae 
+
 import torch
 import torch.nn as nn
 
