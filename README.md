@@ -33,7 +33,7 @@ We decided to solve the problem using 4 different models. We’ll first discuss 
 The VAE takes in the current frame (a 64 x 64 x 3 image) as input and compresses it into a latent vector, which we shall call z. This z vector can be thought of as the model’s internal representation of the world.
 
 #### MDN-RNN
-The MDN-RNN takes in the current z, the currently chosen action, and the hidden state of the previous time step. It outputs the hidden state of the next time step. It can also be used to predict the z vector of the next frame (as the original authors put it, this is part of the model’s ability to create a dream state); we did not explore this feature. The MDN-RNN essentially keeps track of the model’s history. It could theoretically be keeping track of “higher order” info such as velocity and acceleration (which transcend individual time steps), as suggested by the one of the groups that reimplemented the model[2].
+The MDN-RNN takes in the current z, the currently chosen action, and the hidden state of the previous time step. It outputs the hidden state of the next time step. It can also be used to predict the z vector of the next frame (as the original authors put it, this is part of the model’s ability to create a dream state); we did not explore this feature. The MDN-RNN essentially keeps track of the model’s history. It could theoretically be keeping track of “higher order” info such as velocity and acceleration (which transcend individual time steps), as suggested by the one of the groups that reimplemented the model[2]. The code we used for the MDN-RNN was also taken from this group [2].
 
 ![MDN-RNN](images/model_image2.png)
 
@@ -44,7 +44,7 @@ Takes in the current z vector and the current hidden state to choose an action f
 We experimented with using various beta-VAEs, which is where our model architecture differs from the original. As stated in the “Related Work” section, the Beta-VAE uses a modified loss function during training. The KL divergence term in the loss function is multiplied by a beta value greater than 1, which encourages the z vector to become a disentangled representation of the input image. The original model can be thought of as using a beta value of 1 (meaning the KL divergence term was not modified). In addition to the original beta = 1 variational autoencoder, we trained 3 more controllers using beta values equal to 2, 4, and 8.
 
 #### Training
-To train the VAEs, we took random rollouts of the environment and trained the VAE to reproduce each image in the rollout. To train the MDN-RNN, we used randomly initialized weights. To train the controller, we used the CMA-ES evolution strategy. This was the same evolution strategy used by the authors of the original paper.
+To train the VAEs, we took random rollouts of the environment and trained the VAE to reproduce each image in the rollout. To train the MDN-RNN, we used randomly initialized weights. To train the controller, we used the CMA-ES (covariance matrix adaptation evolution strategy). This was the same evolution strategy used by the authors of the original paper. A lot of the code for training the controller is based on a group's reimplementation, but we had to adapt it to be used in the python notebook setting [2].
 
 ## Results
 
@@ -87,7 +87,7 @@ We trained the controller on google colab and found there to be memory leaks tha
 
 We experimented with varying beta values for the VAE, and found that our implementation with beta = 2 performed the best. This is interesting, as it suggests that this disentangled latent z vector contains better information than the z vector in the original implementation. We also found it interesting that too high of a beta value (beta = 8) leads to a network that was not able to learn very much. We hypothesize that this VAE with beta = 8 learns too much of a disentangled representation of the image, meaning that the information it encodes is not relevant to the task of action selection.
 
-One interesting thing about varying the beta values is that the reconstructions don't change significantly. If we look at the figure below, we can see that reconstructions of an input image for each of our 4 different Beta-VAE's look pretty similar. 
+One interesting thing about varying the beta values is that the reconstructions don't change significantly. If we look at the figure below, we can see that reconstructions of an input image for each of our 4 different Beta-VAE's look pretty similar.
 
 #### Figure 4
 
