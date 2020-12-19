@@ -4,7 +4,7 @@
 
 Car-racing v0 is an exciting and difficult environment that was recently solved using a model proposed in a paper from Google Brain [1]. In this demo, we explore alternate versions of the model that change the type of information utilized in the agent’s internal model of the world, such as using a beta-VAE and a randomly initialized MDN-RNN and compare the results to the standard implementation as proposed in the original world models paper [2, 3]. We show that the beta-VAE has the potential to achieve better results, with a peak reward of 570.
 
-[![Alt text](https://img.youtube.com/vi/https://www.youtube.com/watch?v=UBn0OhuktXA&feature=youtu.be/0.jpg)](https://www.youtube.com/watch?v=https://www.youtube.com/watch?v=UBn0OhuktXA&feature=youtu.be)
+[![](http://img.youtube.com/vi/UBn0OhuktXA/0.jpg)](http://www.youtube.com/watch?v=UBn0OhuktXA "")
 
 ## Introduction
 
