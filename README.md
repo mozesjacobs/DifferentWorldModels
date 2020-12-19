@@ -140,3 +140,8 @@ Our work here connects to the predictive coding theory of the brain, a research 
 Note: env_rollouts were retrieved using code from this repo: https://github.com/zacwellmer/WorldModels
 
 Note: to embed the video explanation, this was used: http://embedyoutube.org/
+
+Note: code used for the VAE (was cited in Beta_VAE.ipynb and vae.py as well)
+
+Main VAE framework: https://github.com/ctallec/world-models
+Reparameterize and loss_func: https://github.com/pytorch/examples/tree/master/vae 
