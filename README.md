@@ -137,4 +137,5 @@ Our work here connects to the predictive coding theory of the brain, a research 
 
 
 Note: env_rollouts were retrieved using code from this repo: https://github.com/zacwellmer/WorldModels
+
 Note: to embed the video explanation, this was used: http://embedyoutube.org/
