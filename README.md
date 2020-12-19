@@ -75,7 +75,7 @@ Raw Data | Smoothed Data
 | :---        |  :----: |
 | <img src="videos/vae-b1.gif" width="400" height="300"/>| <img src="videos/vae-b2.gif" width="400" height="300"/>|
 
-| Rollout 3 (beta=4)| Rollout 8 (beta=8)|
+| Rollout 4 (beta=4)| Rollout 8 (beta=8)|
 |:--- |:---:|
 |<img src="videos/vae-b4.gif" width="400" height="300"/>|<img src="videos/vae-b8.gif" width="400" height="300"/>|
 
